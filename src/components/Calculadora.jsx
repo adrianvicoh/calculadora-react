@@ -14,9 +14,11 @@ function Calculadora() {
 
     function pulsar(input) {
         if(!isNaN(parseInt(input)) || input === ",") {
-
+            setDisplay(display + input)
+        } else if(input === "") {
+            
         }
-        setDisplay(display + input)
+        
     }
 
     return (
