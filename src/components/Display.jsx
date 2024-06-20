@@ -1,17 +1,13 @@
 import { useState } from "react";
 
-function Display() {
+function Display(props) {
+
+    let displayContent = props.display;
 
     return (
-        <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 border border-primary">
-                        <p>Display</p>
-                    </div>
-                </div>
-            </div>
-        </>
+        <div className="border border-primary">
+            {displayContent}
+        </div>
     )
 }
 

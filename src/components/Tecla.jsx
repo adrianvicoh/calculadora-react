@@ -1,18 +1,16 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
-function Display() {
+function Tecla(props) {
+
+    let pulsarTecla = props.pulsar;
+    let valor = props.valor;
 
     return (
         <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 border border-primary">
-                        <p>Display</p>
-                    </div>
-                </div>
-            </div>
+           <Button variant="light border border-dark" onClick={() => pulsarTecla(valor)}>{valor}</Button>{' '}
         </>
     )
 }
 
-export default Display;
+export default Tecla;
