@@ -3,7 +3,7 @@ import Display from "./Display";
 import Tecla from "./Tecla.jsx";
 import './Calculadora.css'
 
-let operators = ["+", "-", "/", "X"]
+let operators = ["+", "-", "/", "X"/*,"+/-"*/]
 
 function Calculadora() {
 
@@ -38,7 +38,9 @@ function Calculadora() {
                 setDisplay(newOperation)
                 setValorAnterior(newOperation)
             }
-        }
+        } /*else if (operacion === "+/-") {
+            setDisplay(parseFloat(display) * -1 )
+        }*/
         setOperacion("");
     }
 
@@ -65,7 +67,7 @@ function Calculadora() {
     return (
         <>
             <div className="calcGeneral">
-                <div className="row">
+                <div className="row bg-primary-subtle">
                     <div className="col-12 border border-primary">
                         <Display display={display} />
                         <div className="row">
