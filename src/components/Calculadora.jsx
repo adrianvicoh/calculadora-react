@@ -10,7 +10,7 @@ function Calculadora() {
     const [display, setDisplay] = useState("");
     const [valorAnterior, setValorAnterior] = useState(0);
     const [operacion, setOperacion] = useState("");
-    //const [isOperating, setIsOperating] = useState(false);
+    const [isOperating, setIsOperating] = useState(false);
 
     function borrarDisplay() {
         setDisplay("")
@@ -19,39 +19,44 @@ function Calculadora() {
     function calcular() {
         let newOperation = 0;   
         if (operacion === "+") {
-            newOperation = (valorAnterior + parseFloat(display))
+            newOperation = valorAnterior + parseFloat(display)
             setDisplay(newOperation)
-            setValorAnterior(0)
+            setValorAnterior(newOperation)
         } else if (operacion === "-") {
             newOperation = valorAnterior - parseFloat(display)
             setDisplay(newOperation)
+            setValorAnterior(newOperation)
         } else if (operacion === "X") {
             newOperation = valorAnterior * parseFloat(display)
             setDisplay(newOperation)
+            setValorAnterior(newOperation)
         } else if (operacion === "/") {
             if (parseFloat(display) === 0) {
                 setDisplay("ERROR")
             } else {
                 newOperation = valorAnterior / parseFloat(display)
                 setDisplay(newOperation)
+                setValorAnterior(newOperation)
             }
         }
+        setOperacion("");
     }
 
     function pulsar(input) {
         if (!isNaN(parseInt(input)) || input === ",") {
-            /*if (isOperating) {
+            if (isOperating) {
                 borrarDisplay();
                 setIsOperating(false);
-            }*/
+            }
             setDisplay(display + input);
         } else if (operators.includes(input)) {
-            //setIsOperating(true)
+            setIsOperating(true)
             setValorAnterior(parseFloat(display))
             borrarDisplay();
             setOperacion(input);
         } else if (input === "=") {
             calcular();
+            setOperacion(input)
         } else {
             borrarDisplay();
         }
