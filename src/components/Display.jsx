@@ -1,4 +1,3 @@
-import { useState } from "react";
 import './Display.css'
 
 function Display(props) {
