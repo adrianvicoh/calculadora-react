@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Display from "./Display";
 import Tecla from "./Tecla.jsx";
+import './Calculadora.css'
 
 let operators = ["+", "-", "/", "X"]
 
@@ -35,7 +36,7 @@ function Calculadora() {
                 setDisplay("ERROR")
                 setValorAnterior(0)
             } else {
-                newOperation = valorAnterior * parseFloat(display)
+                newOperation = valorAnterior / parseFloat(display)
                 setDisplay(newOperation)
                 setValorAnterior(0)
             }
@@ -44,7 +45,7 @@ function Calculadora() {
 
     function pulsar(input) {
         if (!isNaN(parseInt(input)) || input === ",") {
-            if(isOperating) {
+            if (isOperating) {
                 borrarDisplay()
                 setDisplay(input)
                 isOperating = false
@@ -59,47 +60,49 @@ function Calculadora() {
         } else {
             borrarDisplay();
         }
-
     }
 
     return (
         <>
-            <div className="container-sm">
-                <div className="row">
-                    <div className="col-12 border border-primary">
-                        <Display display={display} />
-                        <div className="row">
-                            <div className="col-3"><Tecla valor="AC" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="+/-" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="%" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="/" pulsar={pulsar} /></div>
-                        </div>
-                        <div className="row">
-                            <div className="col-3"><Tecla valor="7" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="8" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="9" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="X" pulsar={pulsar} /></div>
-                        </div>
-                        <div className="row">
-                            <div className="col-3"><Tecla valor="4" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="5" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="6" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="-" pulsar={pulsar} /></div>
-                        </div>
-                        <div className="row">
-                            <div className="col-3"><Tecla valor="1" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="2" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="3" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="+" pulsar={pulsar} /></div>
-                        </div>
-                        <div className="row">
-                            <div className="col-6"><Tecla valor="0" pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="," pulsar={pulsar} /></div>
-                            <div className="col-3"><Tecla valor="=" pulsar={pulsar} /></div>
+            <div className="calcGeneral">
+                <div className="container-sm">
+                    <div className="row">
+                        <div className="col-12 border border-primary">
+                            <Display display={display} />
+                            <div className="row">
+                                <div className="col-3"><Tecla valor="AC" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="+/-" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="%" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="/" pulsar={pulsar} /></div>
+                            </div>
+                            <div className="row">
+                                <div className="col-3"><Tecla valor="7" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="8" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="9" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="X" pulsar={pulsar} /></div>
+                            </div>
+                            <div className="row">
+                                <div className="col-3"><Tecla valor="4" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="5" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="6" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="-" pulsar={pulsar} /></div>
+                            </div>
+                            <div className="row">
+                                <div className="col-3"><Tecla valor="1" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="2" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="3" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="+" pulsar={pulsar} /></div>
+                            </div>
+                            <div className="row">
+                                <div className="col-6"><Tecla valor="0" pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="," pulsar={pulsar} /></div>
+                                <div className="col-3"><Tecla valor="=" pulsar={pulsar} /></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
