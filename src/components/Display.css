@@ -1,0 +1,7 @@
+div.displayGeneral {
+    min-height: 100px;
+    font-size: 3em;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+    margin: 20px;
+}
