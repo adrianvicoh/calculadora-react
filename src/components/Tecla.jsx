@@ -7,7 +7,7 @@ function Tecla(props) {
 
     return (
         <>
-           <Button variant="light border border-dark col-10 m-2" onClick={() => pulsarTecla(valor)}>{valor}</Button>{' '}
+           <Button variant="light" className='border border-dark col-10 m-2' onClick={() => pulsarTecla(valor)}>{valor}</Button>{' '}
         </>
     )
 }
